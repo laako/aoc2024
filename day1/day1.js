@@ -7,7 +7,7 @@ const rows = readRows(__dirname);
 const convertToNumberArrays = R.pipe(
     R.map(R.pipe(
         R.split(" "),
-        R.filter(R.complement(R.isEmpty)),
+        R.reject(R.isEmpty),
         R.map(convertToNumber),
     )),
     R.transpose
